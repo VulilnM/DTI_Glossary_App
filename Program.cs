@@ -1,4 +1,4 @@
-using DTI_Glossary_App.Controllers.Data;
+using DTI_Glossary_App.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
