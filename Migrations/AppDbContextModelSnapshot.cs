@@ -39,7 +39,7 @@ namespace DTI_Glossary_App.Migrations
 
                     b.HasKey("GlossaryId");
 
-                    b.ToTable("Glossaries");
+                    b.ToTable("Glossaries", (string)null);
 
                     b.HasData(
                         new
