@@ -12,15 +12,31 @@ namespace DTI_Glossary_App.Controllers
         {
             _db = db;
         }
+
+        // Get all Glossaries
         public IActionResult Index()
         {
             List<Glossary> objGlossaryList = _db.Glossaries.ToList();
             return View(objGlossaryList);
         }
 
+        // Load the Create Glossary View
         public IActionResult Create()
         {
             return View();
+        }
+
+        // Post a Glossary to the DB
+        [HttpPost]
+        public IActionResult Create(Glossary obj)
+        {
+            _db.Add(obj);
+            _db.SaveChanges();
+
+            // Takes in:
+            // 1. Action name
+            // 2. Controller name
+            return RedirectToAction("Index", "Glossary");
         }
     }
 }

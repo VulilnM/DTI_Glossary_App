@@ -5,12 +5,12 @@
             <h3 class="text-primary">Add a Glossary</h3>
             <hr/>
         <div class="mb-3 row p-1">
-            <label class="text-primary p-0">Glossary term</label>
-            <input type="text" class="form-control"/>
+            <label class="text-primary p-0" asp-for="Term"></label>
+            <input asp-for="Term" type="text" class="form-control" />
         </div>
         <div class="mb-3 row p-1">
-            <label class="text-primary p-0">Glossary Definition</label>
-            <input type="text" class="form-control" />
+            <label class="text-primary p-0" asp-for="Definition"></label>
+            <input asp-for="Definition" type="text" class="form-control" />
         </div>
         <div class="row">
             <div class="col-6 col-md-3">

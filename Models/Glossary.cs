@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DTI_Glossary_App.Models
 {
@@ -8,9 +9,11 @@ namespace DTI_Glossary_App.Models
         public int GlossaryId { get; set; }
 
         [Required]
+        [DisplayName("Glossary term")]
         public string Term { get; set; }
 
         [Required]
+        [DisplayName("Glossary definition")]
         public string Definition { get; set; }
     }
 }
