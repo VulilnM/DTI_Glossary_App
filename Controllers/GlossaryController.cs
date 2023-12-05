@@ -30,13 +30,18 @@ namespace DTI_Glossary_App.Controllers
         [HttpPost]
         public IActionResult Create(Glossary obj)
         {
-            _db.Add(obj);
-            _db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _db.Add(obj);
+                _db.SaveChanges();
 
-            // Takes in:
-            // 1. Action name
-            // 2. Controller name
-            return RedirectToAction("Index", "Glossary");
+                // Takes in:
+                // 1. Action name
+                // 2. Controller name
+                return RedirectToAction("Index", "Glossary");
+            }
+            return View();
+
         }
     }
 }

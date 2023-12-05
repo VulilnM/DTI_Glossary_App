@@ -14,6 +14,8 @@ namespace DTI_Glossary_App.Models
 
         [Required]
         [DisplayName("Glossary definition")]
+        // Definition can not be longer than 200 chars, and shorter than 10 chars
+        [StringLength(200, MinimumLength = 10)]
         public string Definition { get; set; }
     }
 }
