@@ -43,5 +43,36 @@ namespace DTI_Glossary_App.Controllers
             return View();
 
         }
-    }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id < 0)
+                return NotFound();
+
+            Glossary editGloss = _db.Glossaries.Find(id);
+            if (editGloss == null)
+            { 
+                return NotFound();
+            }
+
+            return View(editGloss);
+        }
+
+        // Post a Glossary to the DB
+        [HttpPost]
+        public IActionResult Edit(Glossary obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Glossaries.Update(obj);
+                _db.SaveChanges();
+
+                // Takes in:
+                // 1. Action name
+                // 2. Controller name
+                return RedirectToAction("Index", "Glossary");
+            }
+            return View();
+        }
+   }
 }
