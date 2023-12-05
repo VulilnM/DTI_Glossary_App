@@ -13,11 +13,11 @@ namespace DTI_Glossary_App.Controllers
             _db = db;
         }
 
-        // Get all Glossaries
+        // Get all Glossaries and sort them
         public IActionResult Index()
-        {
-            List<Glossary> objGlossaryList = _db.Glossaries.ToList();
-            return View(objGlossaryList);
+        {   
+            List<Glossary> objGlossaryListSorted = _db.Glossaries.OrderBy(g => g.Term).ToList();
+            return View(objGlossaryListSorted);
         }
 
         // Return the Create Glossary View
@@ -72,7 +72,7 @@ namespace DTI_Glossary_App.Controllers
                 // 2. Controller name
                 return RedirectToAction("Index", "Glossary");
             }
-            return View();
+            return View(obj);
         }
 
 
