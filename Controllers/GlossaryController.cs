@@ -17,5 +17,10 @@ namespace DTI_Glossary_App.Controllers
             List<Glossary> objGlossaryList = _db.Glossaries.ToList();
             return View(objGlossaryList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
