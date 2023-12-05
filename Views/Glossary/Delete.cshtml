@@ -1,0 +1,31 @@
+﻿@model Glossary
+    <form method="post">
+        <!-- This field below ensures that the correct Id will be populated for update -->
+        <input asp-for="GlossaryId" hidden/>
+        <div class="border p-3 pb-2">
+        <h3 class="text-primary"><h3> <span class="text-danger">Delete</span> Glossary number @Model.GlossaryId: @Model.Term</h3></h3>
+            <hr />
+            <div class="mb-3 row p-1">
+                <label class="text-primary p-0" asp-for="Term"></label>
+                <label asp-for="Definition" type="text" class="form-control">
+                    @Model.Term
+                </label>
+                <span asp-validation-for="Term" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label class="text-primary p-0" asp-for="Definition"></label>
+                <label asp-for="Definition" type="text" class="form-control">
+                    @Model.Definition
+                </label>
+                <span asp-validation-for="Definition" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <button type="submit" class="btn btn-danger form-control" style="color:black">Delete</button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a asp-controller="Glossary" asp-action="Index" class="btn btn-outline-secondary form-control" style="background-color:#F7F7F9 color:black">Back to list</a>
+                </div>
+            </div>
+        </div>
+    </form>

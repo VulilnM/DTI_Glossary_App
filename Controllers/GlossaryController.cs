@@ -20,7 +20,7 @@ namespace DTI_Glossary_App.Controllers
             return View(objGlossaryList);
         }
 
-        // Load the Create Glossary View
+        // Return the Create Glossary View
         public IActionResult Create()
         {
             return View();
@@ -58,7 +58,7 @@ namespace DTI_Glossary_App.Controllers
             return View(editGloss);
         }
 
-        // Post a Glossary to the DB
+        // Update a Glossary in the DB
         [HttpPost]
         public IActionResult Edit(Glossary obj)
         {
@@ -74,5 +74,37 @@ namespace DTI_Glossary_App.Controllers
             }
             return View();
         }
-   }
+
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id < 0)
+                return NotFound();
+
+            Glossary deleteGloss = _db.Glossaries.Find(id);
+            if (deleteGloss == null)
+            {
+                return NotFound();
+            }
+
+            return View(deleteGloss);
+        }
+
+        // Delete a Glossary from the DB
+        [HttpPost]
+        public IActionResult Delete(Glossary obj)
+        {
+            if(obj == null)
+                return NotFound();
+
+            Glossary deleteGloss = _db.Glossaries.Find(obj.GlossaryId);
+            _db.Glossaries.Remove(deleteGloss);
+            _db.SaveChanges();
+
+            // Takes in:
+            // 1. Action name
+            // 2. Controller name
+            return RedirectToAction("Index", "Glossary");
+        }
+    }
 }
