@@ -1,6 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "About";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container mt-5">
+    <h2>@ViewData["Title"]</h2>
+
+    <p>
+        <ul>
+            <li>This is a test CRUD app created for the purpose of testing my expertize in .NET.</li>
+            <li>The app is implemented as an ASP.NET Core MVC application that communicates with an SQL Server relational database, over EF Core.</li>
+            <li>Built in .NET 8 framework.</li>
+        </ul>
+    </p>
+    <br />
+    <h3>About the app</h3>
+    <p>
+        The app is divided in 3 logical parts:
+        <ul>
+            <li>Models - Defines the data structure that will be used in the application.</li>
+            <li>Controllers - Define the behaviour of the app while the user is interacting with it.</li>
+            <li>Views - Represents the view of the app, how the application UI looks and behaves.</li>
+        </ul>
+    </p>
+    <br />
+    <h3>Test coverage</h3>
+    <p>
+
+        <ul>
+            <li>The application logic is divided and covered with xUnit tests of specific purposes.</li>
+        </ul>
+    </p>
+    <br />
+    <h3>About me</h3>
+    <p>
+         
+        <ul>
+            <li> <a href="https://github.com/VulilnM/DTI_Glossary_App">Here you can see the repo used to store the app's code.</a></li>
+            <li> <a href="https://github.com/VulilnM/DTI_Glossary_App/commits/master">Here you can see the workflow of how I built the app.</a></li>
+            <li> <a href="https://www.linkedin.com/in/vulin-milan-dev/">Here you can check out my LinkedIn profile.</a></li>
+        </ul>
+    </p>
+</div>
